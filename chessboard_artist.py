@@ -10,7 +10,7 @@ def make_board_png(board_size: int, light_square: str, dark_square: str) -> Imag
         for col in range(8):
             if (row + col) % 2 != 0:
                 x0, y0 = col * square_size, row * square_size
-                x1, y1 = x0 + square_size, y0 + square_size
+                x1, y1 = x0 + square_size - 1, y0 + square_size - 1
                 draw.rectangle([x0, y0, x1, y1], fill=dark_square)
     return image
 
