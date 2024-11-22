@@ -1,10 +1,13 @@
-import cv2
 import os
+import sys
+import time
+
+import cv2
 
 def split_into_blocks(image_path, block_size=128):
     image = cv2.imread(image_path)
     height, width, _ = image.shape
-    output_dir = "output_blocks"
+    output_dir = f"output_blocks_{time.time_ns()}"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     block_counter = 0
@@ -20,5 +23,4 @@ def split_into_blocks(image_path, block_size=128):
             block_counter += 1
     print(f"Finished splitting the image into {block_counter} blocks.")
 
-input_image_path = "chessboard.jpg"
-split_into_blocks(input_image_path)
+split_into_blocks(sys.argv[1])
