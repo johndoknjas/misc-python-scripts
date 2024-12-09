@@ -8,4 +8,5 @@ tmux split-window -v "cd '$LILA_DIR'; echo 'Command: redis-server'; bash"
 tmux select-pane -t 0
 tmux split-window -v "cd '$LILA_DIR'; echo 'Command: mongod'; bash"
 tmux split-window -h "cd '$LILA_WS_DIR'; echo 'Command: sbt run -Dcsrf.origin=http://localhost:9663'; bash"
+tmux swap-pane -s 1 -t 2
 tmux -2 attach-session -d
